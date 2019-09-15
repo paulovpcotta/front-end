@@ -1,0 +1,63 @@
+	<link rel="stylesheet" href="vendor/css/app.css" type="text/css" />
+	<link rel="stylesheet" href="vendor/css/form.css" type="text/css" />
+		
+		<link rel="stylesheet" href="vendor/css/component.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/demo.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/normalize.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/table.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/formatter.css" type="text/css" />
+<body>
+<div id="wrap" ng-controller="userController">
+	<div ng-controller="abstractController"><menu></menu></div>
+	
+	<div class="text-app-titulo">| Administrador Usuário | Pesquisar</div>
+		
+  <form>
+    <div class="contentform">
+    	<div ng-class="cssMessage" ng-show="visibleMessage">{{messages}}</div>
+    	
+    	<div class="space-blank">
+	    	<div class="leftcontact">
+				      <div class="form-group">
+				        <p>Nome Usuário<span>*</span></p>
+					     <input type="text" ng-model="searching"/>
+	                <div class="validation"></div>
+	       </div> 
+	
+			</div>
+		
+			<div class="rightcontact">	
+		
+					<div class="form-group">
+						<button type="button" class="bouton-search-p" ng-click="searchUserAdmin(searching)">Pesquisar</button><br>
+					</div>	
+			</div>
+		</div>
+    	<br><br><br><br>
+		<div style="width:650px; height:300px; overflow: auto; margin-top: 40px;">
+		
+		<table>
+					<thead>
+						<tr>
+							<th>Usuário</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="userAdm in users">
+							<td class="user-name">{{userAdm.idLogin}}</td>
+							<td class="user-mobile">
+								<button type="button" class="acoes-excluir" ng-click="deleteUserAdm(userAdm)">Excluir</button><br>
+								<button type="button" class="acoes-editar" ng-click="editUser(userAdm)">Alterar Usuário</button>
+							</td>
+						</tr>
+					</tbody>
+		</table>
+		</div>
+	</div>
+	
+	<button type="button" class="bouton-contact" ng-click="register()">Cadastrar</button>
+	
+	</form>
+</div>
+</body>

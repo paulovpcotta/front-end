@@ -1,0 +1,126 @@
+	<link rel="stylesheet" href="vendor/css/app.css" type="text/css" />
+	<link rel="stylesheet" href="vendor/css/form.css" type="text/css" />
+		<script type="text/javascript" src="vendor/js/jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="vendor/js/jquery.flow.1.2.js"></script>
+		<script type="text/javascript" src="vendor/js/jquery.cycle.js"></script>
+		<script type="text/javascript" src="vendor/js/custom.js"></script>
+		
+		<link rel="stylesheet" href="vendor/css/component.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/demo.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/normalize.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/table.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/formatter.css" type="text/css" />
+<body>
+<div id="wrap">
+	<div ng-controller="abstractController"><menu></menu></div>
+	
+	<div class="text-app-titulo">| Estabelecimento | Editando</div>
+		
+  <form ng-controller="companyController" ng-init="initEdit()">
+    <div class="contentform">
+    	<div ng-class="cssMessage" ng-show="visibleMessage">{{messages}}</div>
+
+
+    	<div class="leftcontact">
+			      <div class="form-group">
+			        <p>Nome<span>*</span></p>
+				        <input type="text" name="nom" id="nom" data-rule="required" placeholder="Nome da empresa/Razão Social"
+				        ng-model="company.desName" value="{{company.desName}}"/>
+                <div class="validation"></div>
+       </div> 
+
+            <div class="form-group">
+            <p>Cnpj <span></span></p>
+				<input type="text" name="prenom" id="prenom" data-rule="required" placeholder="Cnpj da empresa"
+				ng-model="company.desCNPJ" value="{{company.desCNPJ}}"/>
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>Site</p>	
+                <input type="text" name="email" id="email" data-rule="email" placeholder="Site da empresa caso possua"
+                ng-model="company.desSite" value="{{company.desSite}}"/>
+                <div class="validation"></div>
+			</div>	
+
+			<div class="form-group" ng-repeat="phone in company.phones">
+			<p>Telefone </p>
+				<input type="text" data-rule="required" placeholder="Telefone"
+				ng-model="phone.numPhone" value="{{pnone.numPhone}}"/>
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>Nome da pessoa responsável </p>
+				<input type="text" name="postal" id="postal" data-rule="required" placeholder="Nome da pessoa responsável"
+				ng-model="company.desNameResponsible" value="{{company.desNameResponsible}}"/>
+                <div class="validation"></div>
+			</div>	
+
+			<div class="form-group">
+			<p>Estado <span>*</span></p>
+				<input type="text" disabled="disabled"  ng-model="company.address.city.state.desState" value="{{company.address.city.state.desState}}"/>
+                <div class="validation"></div>
+			</div><br>
+
+	</div>
+
+	<div class="rightcontact">	
+
+			<div class="form-group">
+			<p>Cidade <span>*</span></p>	
+				<input type="text" disabled="disabled"  ng-model="company.address.city.desCity" value="{{company.address.city.desCity}}"/>
+                <div class="validation"></div>
+			</div><br>
+
+			<div class="form-group">
+			<p>Rua <span>*</span></p>
+                <input type="text" name="fonction" id="fonction" data-rule="required" placeholder="Endereço | Rua"
+                ng-model="company.address.desStreet" value="{{company.address.desStreet}}"/>
+                <div class="validation"></div>
+			</div>
+			
+			<div class="form-group">
+			<p>Latitude <span>*</span></p>
+                <input type="text" name="fonction" id="fonction" data-rule="required" placeholder="Latitude"
+                ng-model="company.address.numLatitude" value="{{company.address.numLatitude}}"/>
+                <div class="validation"></div>
+			</div>
+			
+			<div class="form-group">
+			<p>Longitude <span>*</span></p>
+                <input type="text" name="fonction" id="fonction" data-rule="required" placeholder="Longitude"
+                ng-model="company.address.numLongitude" value="{{company.address.numLongitude}}"/>
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>Número <span>*</span></p>	
+                <input type="text" name="sujet" id="sujet" data-rule="required" placeholder="Número do local"
+                ng-model="company.address.numStreet" value="{{company.address.numStreet}}"/>
+                <div class="validation"></div>
+			</div>
+		
+			<div class="form-group">
+			<p>Bairro <span>*</span></p>
+                <input type="text" name="sujet" id="sujet" data-rule="required" placeholder="Bairro da localização"
+                ng-model="company.address.desNeighborhood" value="{{company.address.desNeighborhood}}"/>
+                <div class="validation"></div>
+			</div>
+			
+			<div class="form-group">
+			<p>CEP <span>*</span></p>
+                <input type="text" name="cep" id="cep" data-rule="required" placeholder="CEP do local"
+                ng-model="company.address.descCode" value="{{company.address.descCode}}"/>
+                <div class="validation"></div>
+			</div>	
+	</div>
+	
+	</div>
+	
+	<button type="button" class="bouton-contact" ng-click="editCompany()">Cadastrar</button>
+	<button type="button" class="bouton-search" ng-click="search()">Cancelar</button>
+	
+	</form>
+</div>
+</body>

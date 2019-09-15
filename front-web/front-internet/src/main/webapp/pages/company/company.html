@@ -1,0 +1,261 @@
+	<link rel="stylesheet" href="vendor/css/app.css" type="text/css" />
+	<link rel="stylesheet" href="vendor/css/form.css" type="text/css" />
+		<script type="text/javascript" src="vendor/js/jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="vendor/js/jquery.flow.1.2.js"></script>
+		<script type="text/javascript" src="vendor/js/jquery.cycle.js"></script>
+		<script type="text/javascript" src="vendor/js/custom.js"></script>
+		
+		<link rel="stylesheet" href="vendor/css/component.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/demo.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/normalize.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/table.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/formatter.css" type="text/css" />
+<body>
+<div id="wrap">
+	<div ng-controller="abstractController"><menu></menu></div>
+	
+	<div class="text-app-titulo">| Estabelecimento | Cadastro</div>
+		
+  <form ng-controller="companyController">
+    <div class="contentform">
+    	<div ng-class="cssMessage" ng-show="visibleMessage">{{messages}}</div>
+
+
+    	<div class="leftcontact">
+			      <div class="form-group">
+			        <p>Nome<span>*</span></p>
+				        <input type="text" name="nom" id="nom" data-rule="required" placeholder="Nome da empresa/Razão Social"
+				        ng-model="companyDto.desName"/>
+                <div class="validation"></div>
+       </div> 
+
+            <div class="form-group">
+            <p>Cnpj <span></span></p>
+				<input type="text" name="prenom" id="prenom" data-rule="required" placeholder="Cnpj da empresa"
+				ng-model="companyDto.document"/>
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>Site</p>	
+                <input type="text" name="email" id="email" data-rule="email" placeholder="Site da empresa caso possua"
+                ng-model="companyDto.desSite"/>
+                <div class="validation"></div>
+			</div>	
+
+			<div class="form-group">
+			<p>Telefone fixo </p>
+				<input type="text" name="society" id="society" data-rule="required" placeholder="Telefone fixo"
+				ng-model="phoneFixed"/>
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>Telefone Celular <span>*</span></p>
+				<input type="text" name="adresse" id="adresse" data-rule="required" placeholder="Telefone celular"
+				ng-model="celPhone"/>
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>Nome da pessoa responsável </p>
+				<input type="text" name="postal" id="postal" data-rule="required" placeholder="Nome da pessoa responsável"
+				ng-model="companyDto.namePearsonResponsible"/>
+                <div class="validation"></div>
+			</div>	
+
+			<div class="form-group">
+			<p>Estado <span>*</span></p>
+				<div class="styled-select blue semi-square">
+				  <select ng-model="objState" ng-change="getCityByState(objState)">
+				    <option ng-repeat="state in states" value="{{state.idState}}">{{state.desState}}</option>
+				  </select>
+				</div>
+                <div class="validation"></div>
+			</div><br>
+
+	</div>
+
+	<div class="rightcontact">	
+
+			<div class="form-group">
+			<p>Cidade <span>*</span></p>	
+				<div class="styled-select blue semi-square">
+				  <select ng-model="companyDto.addressDto.cityDto.idCity">
+				    <option ng-repeat="city in citys" value="{{city.idCity}}">{{city.desCity}}</option>
+				  </select>
+				</div>
+                <div class="validation"></div>
+			</div><br>
+
+			<div class="form-group">
+			<p>Rua <span>*</span></p>
+                <input type="text" name="fonction" id="fonction" data-rule="required" placeholder="Endereço | Rua"
+                ng-model="companyDto.addressDto.desStreet"/>
+                <div class="validation"></div>
+			</div>
+			
+			<div class="form-group">
+			<p>Latitude <span>*</span></p>
+                <input type="text" name="fonction" id="fonction" data-rule="required" placeholder="Latitude"
+                ng-model="companyDto.addressDto.numLatitude"/>
+                <div class="validation"></div>
+			</div>
+			
+			<div class="form-group">
+			<p>Longitude <span>*</span></p>
+                <input type="text" name="fonction" id="fonction" data-rule="required" placeholder="Longitude"
+                ng-model="companyDto.addressDto.numLongitude"/>
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>Número <span>*</span></p>	
+                <input type="text" name="sujet" id="sujet" data-rule="required" placeholder="Número do local"
+                ng-model="companyDto.addressDto.numStreet"/>
+                <div class="validation"></div>
+			</div>
+		
+			<div class="form-group">
+			<p>Bairro <span>*</span></p>
+                <input type="text" name="sujet" id="sujet" data-rule="required" placeholder="Bairro da localização"
+                ng-model="companyDto.addressDto.desNeighborhood"/>
+                <div class="validation"></div>
+			</div>
+			
+			<div class="form-group">
+			<p>CEP <span>*</span></p>
+                <input type="text" name="cep" id="cep" data-rule="required" placeholder="CEP do local"
+                ng-model="companyDto.addressDto.descCode"/>
+                <div class="validation"></div>
+			</div>	
+	</div>
+	
+	</div>
+	
+	<div class="contentform space-blank">
+		<fieldset title="Categoria">
+			<legend>Categoria</legend>
+			<div>
+				<div ng-repeat="category in categorys">
+					<table>
+						<tr>
+							<td style="vertical-align: middle; width: 90%"><p>{{category.desCategory}}</p></td>
+							<td style="vertical-align: middle;"><input type="checkbox" ng-click="characterist(category.idCategory)"
+					id="{{category.idCategory}}"/></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+	
+	<div class="contentform space-blank">
+		<fieldset title="Caracteristícas" ng-show="characteristcs.length > 0">
+			<legend>Caracteristícas</legend>
+			<div>
+				<div ng-repeat="c in characteristcs">
+					<table>
+						<tr>
+							<td style="vertical-align: middle; width: 90%"><p>{{c.desCharacteristic}}</p></td>
+							<td style="vertical-align: middle;"><input type="checkbox" ng-click="mountObjCharacterisct(c.idCharacteristic)"/></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+	
+	<fieldset title="Fotos da Galeria">
+			<legend>Fotos da galeria</legend>
+			<div class="contentform space-blank">
+				<div class="form-group">
+					<input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this, 0)" id="photo-upload" placeholder="Selecione uma ou mais fotos de uma vez"
+					multiple="multiple"/>
+				</div>
+			</div>
+	</fieldset>
+	
+	<fieldset title="Fotos da Logomarca">
+			<legend>Fotos da Logomarca</legend>
+			<div class="contentform space-blank">
+				<div class="form-group">
+					<input type="file" name="file1" onchange="angular.element(this).scope().uploadFile(this, 1)" id="photo-upload1" placeholder="Selecione uma foto"/>
+				</div>
+			</div>
+	</fieldset>
+	
+	<fieldset title="Fotos da home">
+			<legend>Fotos da home</legend>
+			<div class="contentform space-blank">
+				<div class="form-group">
+					<input type="file" name="file2" onchange="angular.element(this).scope().uploadFile(this, 2)" id="photo-upload2" placeholder="Selecione uma foto"/>
+				</div>
+			</div>
+	</fieldset>
+	
+	<div class="leftcontact">
+		<div class="form-group">
+			<p>Dias da semana <span>*</span></p>	
+				<div class="styled-select blue semi-square">
+				  <select ng-model="week">
+				    <option ng-repeat="w in listWeek" value="{{w.idWeek}}">{{w.dsWeek}}</option>
+				  </select>
+				</div>
+		              <div class="validation"></div>
+		</div>
+		
+		<div class="form-group">
+			<p>Horário início <span>*</span></p>	
+				<div class="styled-select blue semi-square">
+				  <select ng-model="hourInit">
+				    <option ng-repeat="s in listSchedule" value="{{s.idSchedule}}">{{s.dsSchedule}}</option>
+				  </select>
+				</div>
+		              <div class="validation"></div>
+		</div>
+		
+		<div class="form-group">
+			<p>Horário fim <span>*</span></p>	
+				<div class="styled-select blue semi-square">
+				  <select ng-model="hourFinish">
+				    <option ng-repeat="s in listSchedule" value="{{s.idSchedule}}">{{s.dsSchedule}}</option>
+				  </select>
+				</div>
+		              <div class="validation"></div>
+		</div><br>
+		<div class="form-group">
+			<p>Tipo de comida <span>*</span></p>	
+				<div class="styled-select blue semi-square">
+				  <select ng-model="food">
+				    <option ng-repeat="t in listTypeFood" value="{{t.idFoodType}}">{{t.dsFoodType}}</option>
+				  </select>
+				</div>
+		              <div class="validation"></div>
+		</div><br>
+		<button type="button" class="bouton-contact" ng-click="addHourDate(week, hourInit, hourFinish)">Adicionar</button>
+	</div>
+	
+	<div class="rightcontact">
+		<div class="form-group">
+			<table>
+				<tr>
+					<td>Dia da semana</td>
+					<td>Horário de início</td>
+					<td>Horário de Termino</td>
+				</tr>
+				<tr ng-repeat="days in hourDates">
+					<td>{{days.week}}</td>
+					<td>{{days.hourInitial}}</td>
+					<td>{{days.hourFinish}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<button type="button" class="bouton-contact" ng-click="saveCompany(phoneFixed, celPhone, food)">Cadastrar</button>
+	<button type="button" class="bouton-search" ng-click="search()">Pesquisar</button>
+	
+	</form>
+</div>
+</body>

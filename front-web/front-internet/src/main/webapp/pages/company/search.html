@@ -1,0 +1,104 @@
+	<link rel="stylesheet" href="vendor/css/app.css" type="text/css" />
+	<link rel="stylesheet" href="vendor/css/form.css" type="text/css" />
+		<script type="text/javascript" src="vendor/js/jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="vendor/js/jquery.flow.1.2.js"></script>
+		<script type="text/javascript" src="vendor/js/jquery.cycle.js"></script>
+		<script type="text/javascript" src="vendor/js/custom.js"></script>
+		
+		<link rel="stylesheet" href="vendor/css/component.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/demo.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/normalize.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/table.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/formatter.css" type="text/css" />
+<body>
+<div id="wrap">
+	<div ng-controller="abstractController"><menu></menu></div>
+	
+	<div class="text-app-titulo">| Estabelecimento | Pesquisar</div>
+		
+  <form ng-controller="companyController">
+    <div class="contentform">
+    	<div ng-class="cssMessage" ng-show="visibleMessage">{{messages}}</div>
+    	
+    	<div class="leftcontact" style="margin-bottom: 50px;">
+	      <div class="form-group">
+	        <p>Nome</p>
+		        <input type="text" name="nom" id="nom" data-rule="required" placeholder="Nome da empresa/Razão Social"
+		        ng-model="nameEstablishment"/>
+              <div class="validation"></div>
+     	  </div>
+     	  <div class="form-group">
+	        <p>Responsável</p>
+		        <input type="text" name="res" id="res" data-rule="required" placeholder="Responsavel pela empresa"
+		        ng-model="responsibleEstablishment"/>
+              <div class="validation"></div>
+     	  </div>
+     	  
+     	  <div class="form-group">
+	        <p>Cnpj</p>
+		        <input type="text" name="cnpj" id="cnpj" data-rule="required" placeholder="Cnpj da empresa"
+		        ng-model="cnpj"/>
+              <div class="validation"></div>
+     	  </div>
+     	</div>
+     	
+     	<div class="rightcontact" style="margin-bottom: 15px;">
+     	  <div class="form-group">
+			<p>Estado <span>*</span></p>
+				<div class="styled-select blue semi-square">
+				  <select ng-model="objState" ng-change="getCityByState(objState)">
+				    <option ng-repeat="state in states" value="{{state.idState}}">{{state.desState}}</option>
+				  </select>
+				</div>
+                <div class="validation"></div>
+			</div><br>	
+
+			<div class="form-group">
+			<p>Cidade <span>*</span></p>	
+				<div class="styled-select blue semi-square">
+				  <select ng-model="objCity">
+				    <option ng-repeat="city in citys" value="{{city.idCity}}">{{city.desCity}}</option>
+				  </select>
+				</div>
+                <div class="validation"></div>
+			</div><br>
+     	</div>
+     	
+     	<div style="margin-top: 250px;">
+     		<button type="button" class="bouton-pesquisar-peq"
+     			ng-click="searchCompany(nameEstablishment, responsibleEstablishment,
+					cnpj, objCity)">Pesquisar</button>
+     	</div>
+		
+		<div style="width:650px; height:300px; overflow: auto; margin-top: 40px;">
+		<table>
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Responsável</th>
+							<th>CNPJ</th>
+							<th>Fixo</th>
+							<th>Patrocinado</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="cpn in companys">
+							<td class="user-name">{{cpn.desName}}</td>
+							<td class="user-name">{{cpn.desNameResponsible}}</td>
+							<td class="user-name">{{cpn.desCNPJ}}</td>
+							<td class="user-phone"><div ng-repeat="phn in cpn.phones">{{phn.numPhone}}</div></td>
+							<td class="user-mobile">---</td>
+							<td class="user-mobile">
+								<button type="button" class="acoes-excluir" ng-click="inactiveCompany(cpn)">Remove</button><br>
+								<button type="button" class="acoes-editar" ng-click="edit(cpn)">&nbsp;&nbsp;Editar&nbsp;&nbsp;</button>
+							</td>
+						</tr>
+					</tbody>
+		</table>
+		</div>
+		<button type="button" class="bouton-back" ng-click="back()">Voltar</button>
+		
+	</form>
+</div>
+</body>

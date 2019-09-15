@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="app/startbootstrap/css/sb-admin.css">
+<link rel="stylesheet" href="app/startbootstrap/font-awesome/css/font-awesome.min.css">
+
+<div id="wrapper">
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Menu</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" style="cursor: default;">Sinergia</a>
+		</div>
+		
+		<!-- Top Menu Items -->
+		<ul class="nav navbar-right top-nav">
+			<li class="dropdown">
+				<a href class="dropdown-toggle" data-toggle="dropdown">
+					<i class="fa fa-user"></i> 
+					Nome do usuário logado 
+					<b class="caret"></b></a>
+				<ul class="dropdown-menu">					
+					<li>
+						<a href>
+							<i class="fa fa-fw fa-lock"></i> Alterar Senha
+						</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href ng-click="vm.logout();">
+							<i class="fa fa-fw fa-power-off"></i> Sair
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul id="menu" class="nav navbar-nav side-nav">
+				<li class="active">
+					<a href ng-click="vm.go('main.dashboard', $event)">
+						<i class="fa fa-fw fa-dashboard"></i> Dashboard
+					</a>
+				</li>
+				<li>
+					<a href ng-click="vm.go('main.example', $event)">
+						<i class="fa fa-fw fa-envelope"></i> Mensagem
+					</a>
+				</li>
+				<li>
+					<a href ng-click="vm.go('main.stablishment', $event)">
+						<i class="fa fa-fw fa-user"></i> Avaliação da Empresa
+					</a>
+				</li>
+				<li>
+					<a href ng-click="vm.go('main.email', $event)">
+						<i class="fa fa-fw fa-envelope"></i> Email
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</nav>
+
+	<div id="page-wrapper">
+		<div class="container-fluid" ui-view="main-view"></div>
+	</div>
+</div>
+<!-- /#wrapper -->

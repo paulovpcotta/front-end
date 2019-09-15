@@ -1,0 +1,24 @@
+<body>
+</body>
+<link rel="stylesheet" href="vendor/css/component.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/demo.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/normalize.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/table.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/formatter.css" type="text/css" />
+<div class="container" ng-controller="loginController">
+<div ng-class="cssMessage" ng-show="visibleMessage">{{messages}}</div>
+	<section id="content">
+		<form action="">
+			<h1>Administrador</h1>
+			<div>
+				<input type="text" placeholder="Username" required="" id="username" ng-model="username"/>
+			</div>
+			<div>
+				<input type="password" placeholder="Password" required="" id="password" ng-model="password"/>
+			</div>
+			<div>
+				<input type="button" value="Log in" ng-click="entrace()"/>
+			</div>
+		</form><!-- form -->
+	</section><!-- content -->
+</div><!-- container -->

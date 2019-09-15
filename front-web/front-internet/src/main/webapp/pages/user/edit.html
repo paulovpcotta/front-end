@@ -1,0 +1,49 @@
+	<link rel="stylesheet" href="vendor/css/app.css" type="text/css" />
+	<link rel="stylesheet" href="vendor/css/form.css" type="text/css" />
+		<script type="text/javascript" src="vendor/js/jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="vendor/js/jquery.flow.1.2.js"></script>
+		<script type="text/javascript" src="vendor/js/jquery.cycle.js"></script>
+		<script type="text/javascript" src="vendor/js/custom.js"></script>
+		
+		<link rel="stylesheet" href="vendor/css/component.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/demo.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/normalize.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/table.css" type="text/css" />
+		<link rel="stylesheet" href="vendor/css/formatter.css" type="text/css" />
+		
+<body>
+<div id="wrap">
+	<div ng-controller="abstractController"><menu></menu></div>
+	
+	<div class="text-app-titulo">| Administrador Usuário | Editando</div>
+		
+  <form ng-controller="userController" ng-init="initEdit()">
+    <div class="contentform">
+    	<div ng-class="cssMessage" ng-show="visibleMessage">{{messages}}</div>
+
+
+    	<div class="leftcontact">
+			      <div class="form-group">
+			        <p>Nome Usuário<span>*</span></p>
+				        <label>{{user.idLogin}}</label>
+                <div class="validation"></div>
+       </div> 
+
+	</div>
+
+	<div class="rightcontact">	
+
+			<div class="form-group">
+			<p>Senha <span>*</span></p>
+                <input type="password" name="pws" id="pws" data-rule="required" placeholder="Senha nova do usuário"
+                ng-model="user.desPassword"/>
+                <div class="validation"></div>
+			</div>	
+	</div>
+	</div>
+	<button type="button" class="bouton-contact" ng-click="updateUserAdmin()">Alterar</button>
+	<button type="button" class="bouton-search" ng-click="search()">Pesquisar</button>
+	
+	</form>
+</div>
+</body>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="kidfriendly.adm">
+  	<head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    	<meta http-equiv="Content-Security-Policy" content="default-src *; img-src 'self' data: placehold.it http://127.0.0.1:55776; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' cdnjs.cloudflare.com http://127.0.0.1:55776">
+    	
+    	<title>Administrador - Kid Friendly</title>
+    	
+    	<!-- CSS -->
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    	
+    	<!-- LIB -->
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.min.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-cookies.min.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-messages.min.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-touch.min.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/lib/criptograph/sha256.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/lib/ui/mask/mask.min.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/lib/ui/mask/string-mask.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/lib/ui/validate/validate.min.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/lib/upload/ng-file-upload-shim.min.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/lib/upload/ng-file-upload.min.js"></script>
+    	
+    	<!-- COMUM -->
+    	<script type="text/javascript" src="/kidfriendly/system/comum/js/filter/kidfriendly.comum.filter.module.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/comum/js/filter/mask/mask.date.filter.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/comum/js/filter/mask/mask.filter.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/comum/js/service/kidfriendly.comum.service.module.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/comum/js/service/abstract.service.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/comum/js/validator/kidfriendly.comum.validator.module.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/comum/js/validator/email/email.validator.directive.js"></script>
+    	<script type="text/javascript" src="/kidfriendly/system/comum/js/kidfriendly.comum.module.js"></script>
+    	
+    	<!-- APP -->
+    	<script type="text/javascript" src="app/kidfriendly.adm.module.js"></script>
+    	<script type="text/javascript" src="app/kidfriendly.adm.config.js"></script>
+    	
+    	<!-- LOGIN -->
+    	<script type="text/javascript" src="app/vendor/login/controller/login.controller.js"></script>
+    	
+    	<!-- MAIN --
+    	<script type="text/javascript" src="app/vendor/main/controller/main.controller.js"></script>
+    	
+    	<!-- DASHBOARD --
+    	<script type="text/javascript" src="app/vendor/dashboard/controller/dashboard.controller.js"></script>
+    	<script type="text/javascript" src="app/vendor/dashboard/service/dashboard.service.js"></script>
+    	
+    	<!-- EMAIL --
+    	<script type="text/javascript" src="app/vendor/email/controller/email.controller.js"></script>
+    	<script type="text/javascript" src="app/vendor/email/service/email.service.js"></script>
+    	-->
+  	</head>
+  	<body>
+  		<div ui-view></div>
+  	</body>
+</html>
